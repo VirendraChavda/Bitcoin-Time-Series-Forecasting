@@ -159,10 +159,6 @@ The performance of various models used for Bitcoin price forecasting is summariz
 
 Residual analysis was performed to ensure the model met statistical assumptions for reliable predictions. Below are the findings:
 
-- **Autocorrelation**:
-  - The autocorrelation plot shows minimal autocorrelation in residuals beyond the first lag, indicating independence.
-  ![Autocorrelation](results1.png)
-
 - **Standardized Residuals**:
   - Residuals fluctuate around zero with no discernible patterns, supporting the independence assumption.
   ![Standardized Residuals](results2.png)
@@ -174,6 +170,10 @@ Residual analysis was performed to ensure the model met statistical assumptions 
 - **Q-Q Plot**:
   - The Q-Q plot shows that residuals follow a normal distribution, with minor deviations at the tails.
   ![Q-Q Plot](results4.png)
+
+- **Autocorrelation**:
+  - The autocorrelation plot shows minimal autocorrelation in residuals beyond the first lag, indicating independence.
+  ![Autocorrelation](results1.png)
 
 ---
 
