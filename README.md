@@ -161,19 +161,19 @@ Residual analysis was performed to ensure the model met statistical assumptions 
 
 - **Standardized Residuals**:
   - Residuals fluctuate around zero with no discernible patterns, supporting the independence assumption.
-  ![Standardized Residuals](results4.png)
+  ![Standardized Residuals](results1.png)
 
 - **Histogram and Density Plot**:
   - The histogram with density overlay demonstrates a near-normal distribution of residuals, aligning with the normality assumption.
-  ![Histogram and Density](results1.png)
+  ![Histogram and Density](results2.png)
 
 - **Q-Q Plot**:
   - The Q-Q plot shows that residuals follow a normal distribution, with minor deviations at the tails.
-  ![Q-Q Plot](results2.png)
+  ![Q-Q Plot](results3.png)
 
 - **Autocorrelation**:
   - The autocorrelation plot shows minimal autocorrelation in residuals beyond the first lag, indicating independence.
-  ![Autocorrelation](results3.png)
+  ![Autocorrelation](results4.png)
 
 ---
 
