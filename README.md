@@ -115,31 +115,11 @@ Data preprocessing involved feature engineering, scaling, and stationarity testi
 
 ---
 
-## Residual Analysis
+## Results
 
 <p align="justify">
-The residual analysis for the Seasonal OLS Hybrid model was conducted to ensure that the residuals met the assumptions of normality, independence, and homoscedasticity. Below are the results:
+The performance of various models used for Bitcoin price forecasting is summarized in the table below. Key metrics, including RMSE (Root Mean Square Error), MAPE (Mean Absolute Percentage Error), and R² (Coefficient of Determination), were used to evaluate the accuracy and robustness of the predictions. The analysis reveals clear differences in model performance, highlighting the superiority of hybrid and decomposition-based models for hourly Bitcoin price forecasting.
 </p>
-
-#### Autocorrelation Plot
-- The autocorrelation plot shows no significant autocorrelation beyond the first lag, indicating independence of residuals.
-![Autocorrelation](results1.png)
-
-#### Standardized Residuals
-- Standardized residuals oscillate around zero with no clear patterns, supporting the independence assumption.
-![Standardized Residuals](results2.png)
-
-#### Histogram and Density Plot
-- The histogram and density plot of residuals suggest a near-normal distribution, aligning with the normality assumption.
-![Histogram and Density](results3.png)
-
-#### Q-Q Plot
-- The Q-Q plot demonstrates that the residuals closely follow a normal distribution, with slight deviations at the tails.
-![Q-Q Plot](results4.png)
-
----
-
-## Results
 
 ### Comparative Model Performance
 
@@ -153,6 +133,54 @@ The residual analysis for the Seasonal OLS Hybrid model was conducted to ensure 
 | LSTM Autoencoder          | 74.16     | 0.190     | 0.999   |
 | KAN                       | 101.00    | 0.230     | 0.998   |
 | TKAN                      | 54.50     | 0.120     | 0.999   |
+
+### Detailed Analysis of Results
+
+1. **Traditional Models**:
+   - The SARIMAX model achieved reasonably good performance, with an RMSE of 66.60 and an R² of 0.999. However, it struggled with capturing non-linear dynamics in the data.
+   - Seasonal OLS Hybrid emerged as the most accurate model, achieving the best results with an RMSE of 4.72, a MAPE of 0.011, and an R² of 1.000. This success can be attributed to the decomposition of the time series into trend and residual components.
+
+2. **Deep Learning Models**:
+   - CNN-LSTM performed well but had a higher RMSE (159.63) compared to traditional models, indicating challenges in adapting to the high-frequency nature of the Bitcoin data.
+   - CNN-LSTM-GAN performed poorly (RMSE: 434.22) as the generative augmentation approach failed to improve prediction accuracy. The model showed significant overfitting and instability during training.
+   - EMD-LSTM, despite leveraging empirical mode decomposition, struggled with large RMSE and MAPE values, indicating limitations in capturing the data's high volatility.
+   - LSTM Autoencoder demonstrated high accuracy (RMSE: 74.16, R²: 0.999), showcasing its ability to detect patterns, although not as effectively as the hybrid models.
+
+3. **Hybrid Models**:
+   - The hybrid approaches combining decomposition methods with regression or deep learning outperformed standalone models. Seasonal OLS Hybrid and TKAN (Temporal Kolmogorov-Arnold Networks) were particularly noteworthy:
+     - TKAN integrated decomposition and advanced non-linear mapping, achieving RMSE: 54.50, MAPE: 0.120, and R²: 0.999.
+     - Seasonal OLS Hybrid's simplistic yet effective approach excelled due to its decomposition of time series trends and residuals.
+
+4. **Kolmogorov-Arnold Networks (KAN)**:
+   - The KAN model effectively captured non-linear relationships in the time series, resulting in RMSE: 101.00, MAPE: 0.230, and R²: 0.998.
+   - Its advanced spline activation functions made it competitive but not as strong as TKAN, which incorporated temporal dynamics.
+
+### Residual Analysis for Seasonal OLS Hybrid
+
+Residual analysis was performed to ensure the model met statistical assumptions for reliable predictions. Below are the findings:
+
+- **Autocorrelation**:
+  - The autocorrelation plot shows minimal autocorrelation in residuals beyond the first lag, indicating independence.
+  ![Autocorrelation](results1.png)
+
+- **Standardized Residuals**:
+  - Residuals fluctuate around zero with no discernible patterns, supporting the independence assumption.
+  ![Standardized Residuals](results2.png)
+
+- **Histogram and Density Plot**:
+  - The histogram with density overlay demonstrates a near-normal distribution of residuals, aligning with the normality assumption.
+  ![Histogram and Density](results3.png)
+
+- **Q-Q Plot**:
+  - The Q-Q plot shows that residuals follow a normal distribution, with minor deviations at the tails.
+  ![Q-Q Plot](results4.png)
+
+---
+
+<p align="justify">
+In summary, the Seasonal OLS Hybrid model and TKAN demonstrated the best predictive performance for hourly Bitcoin price forecasting. While deep learning and generative models showed potential, their performance was inconsistent compared to hybrid models. The results emphasize the importance of integrating decomposition techniques and hybrid frameworks to capture the complexities of high-frequency time series data.
+</p>
+                  | 54.50     | 0.120     | 0.999   |
 
 ---
 
